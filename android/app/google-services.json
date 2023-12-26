@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "279487260741",
+    "project_id": "brain-bounce",
+    "storage_bucket": "brain-bounce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279487260741:android:c5eafc10d575b645279b2c",
+        "android_client_info": {
+          "package_name": "com.example.brain_bounce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWKnK9qxjrsyqm5EMShjj75lg6bDhNzmU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

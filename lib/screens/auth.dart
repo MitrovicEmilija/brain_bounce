@@ -90,165 +90,361 @@ class _AuthScreenState extends State<AuthScreen> {
           children: [
             Positioned.fill(
                 child: Image.asset(
-              'assets/images/background.png',
-              fit: BoxFit.cover,
+              'assets/images/background-new.png',
+              fit: BoxFit.fitWidth,
+              alignment: Alignment.topCenter,
             )),
-            Center(
+            Align(
+              alignment: Alignment(0, -0.07),
               child: SingleChildScrollView(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Padding(
-                        padding: EdgeInsets.only(top: 40),
+                        padding: const EdgeInsets.only(top: 0.0),
                         child: Text(
-                          'WELCOME TO BRAIN BOUNCE',
+                          'WELCOME TO BRAIN \nBOUNCE',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontFamily: 'JosefinSans',
                               fontSize: 30,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w800,
                               color: Color.fromRGBO(87, 51, 83, 1)),
                         ),
                       ),
-                      Card(
-                        color: const Color.fromRGBO(255, 243, 233, 1),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 22.0),
+                        child: ElevatedButton.icon(
+                          icon: Padding(
+                            padding: EdgeInsets.only(top: 5.0),
+                            child: Image.asset(
+                              'assets/images/google-icon.png',
+                              height: 35.0,
+                            ),
+                          ),
+                          label: const Padding(
+                            padding: EdgeInsets.only(left: 10.0, right: 40.0),
+                            child: DefaultTextStyle(
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color.fromRGBO(87, 51, 83, 1)),
+                              child: Text('Continue with Google'),
+                            ),
+                          ),
+                          onPressed: () {
+                            // We dont do anything here :) This is just to show
+                          },
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.black,
+                            backgroundColor: Colors.white,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            minimumSize: const Size(double.infinity, 45),
+                          ),
                         ),
-                        margin: _isLogin
-                            ? const EdgeInsets.only(
-                                top: 200, right: 20, left: 20, bottom: 10)
-                            : const EdgeInsets.only(
-                                top: 100, right: 20, left: 20, bottom: 10),
-                        child: SingleChildScrollView(
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Form(
-                              key: _formKey,
-                              child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    if (!_isLogin)
-                                      UserImagePicker(
-                                        onPickImage: (pickedImage) {
-                                          _selectedImage = pickedImage;
+                      ),
+                    ]),
+              ),
+            ),
+            Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                height: MediaQuery.of(context).size.height * 0.40,
+                child: Card(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15.0),
+                      topRight: Radius.circular(15.0),
+                    ),
+                  ),
+                  margin: _isLogin
+                      ? const EdgeInsets.only(
+                          top: 0, right: 0, left: 00, bottom: 00)
+                      : const EdgeInsets.only(
+                          top: 0, right: 00, left: 00, bottom: 00),
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(18),
+                      child: Form(
+                        key: _formKey,
+                        child:
+                            Column(mainAxisSize: MainAxisSize.min, children: [
+                          if (!_isLogin)
+                            UserImagePicker(
+                              onPickImage: (pickedImage) {
+                                _selectedImage = pickedImage;
+                              },
+                            ),
+                          const Center(
+                            child: Text(
+                              'Log in with email',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400, fontSize: 15.5),
+                            ),
+                          ),
+                          Divider(
+                            color: Colors
+                                .grey,
+                            thickness: 0,
+                            height:
+                                25,
+                          ),
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              labelText: 'Email',
+                              labelStyle: TextStyle(color: Color(0xFFFDA758)),
+                              prefixIcon: IconTheme(
+                                data: IconThemeData(
+                                  size: 17.0, // Smaller icon size
+                                  color: Color.fromRGBO(253, 167, 88, 1),
+                                ),
+                                child: Icon(
+                                  Icons.email,
+                                ),
+                              ),
+                              filled: true,
+                              fillColor: Color(0xFFFFF3E9),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 0), // Transparent border
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(15.0),
+                                  topRight: Radius.circular(15.0),
+                                  bottomLeft: Radius.circular(15.0),
+                                  bottomRight: Radius.circular(15.0),
+                                ), // Rounded corners on the top
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.transparent, width: 0),
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(15.0),
+                                  topRight: Radius.circular(15.0),
+                                  bottomLeft: Radius.circular(15.0),
+                                  bottomRight: Radius.circular(15.0),
+                                ),
+                              ),
+                            ),
+                            style: TextStyle(
+                              color: Color(0xFFFDA758),
+                              decoration:
+                                  TextDecoration.none,
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            autocorrect: false,
+                            textCapitalization: TextCapitalization.none,
+                            validator: (value) {
+                              if (value == null ||
+                                  value.trim().isEmpty ||
+                                  !value.contains('@')) {
+                                return 'Please enter a valid email address.';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) {
+                              _enteredEmail = value!;
+                            },
+                          ),
+                          if (!_isLogin)
+                            TextFormField(
+                                decoration: const InputDecoration(
+                                    labelText: 'Username',
+                                    labelStyle: TextStyle(
+                                        fontFamily: 'JosefinSans',
+                                        color: Color.fromRGBO(87, 51, 83, 1))),
+                                enableSuggestions: false,
+                                validator: (value) {
+                                  if (value == null ||
+                                      value.trim().isEmpty ||
+                                      value.trim().length < 4) {
+                                    return 'Username must be at least 4 characters long.';
+                                  }
+                                  return null;
+                                },
+                                onSaved: (value) {
+                                  _enteredUsername = value!;
+                                }),
+                          Padding(
+                            padding: EdgeInsets.only(top: 8.0),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: 'Password',
+                                labelStyle: const TextStyle(
+                                  color: Color.fromRGBO(90, 86, 90, 1),
+                                ),
+                                prefixIcon: IconTheme(
+                                  data: IconThemeData(
+                                    size: 17.0,
+                                    color: Color.fromRGBO(90, 86, 90, 1),
+                                  ),
+                                  child: Icon(
+                                    Icons.lock,
+                                    color: Color.fromRGBO(90, 86, 90, 1),
+                                  ),
+                                ),
+                                filled: true,
+                                fillColor: Color(0xFFFFF3E9),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Colors.transparent, width: 0),
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Colors.transparent, width: 0),
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                              ),
+                              style: TextStyle(
+                                color: Color(0xFFFDA758),
+                                decoration: TextDecoration.none,
+                              ),
+                              obscureText: true,
+                              validator: (value) {
+                                if (value == null ||
+                                    value.trim().isEmpty ||
+                                    value.trim().length < 6) {
+                                  return 'Password must be at least 6 characters long.';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                _enteredPassword = value!;
+                              },
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          if (_isAuthenticating)
+                            const CircularProgressIndicator(),
+                          Column(
+                            mainAxisSize: MainAxisSize
+                                .min,
+                            children: [
+                              ElevatedButton(
+                                onPressed: _submit,
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      Color.fromRGBO(253, 167, 88, 1),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        9.0),
+                                  ),
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 16.0,
+                                      horizontal:
+                                          32.0), 
+                                  minimumSize: Size(double.infinity,
+                                      50), 
+                                ),
+                                child: Text(
+                                  'Login',
+                                  style: TextStyle(
+                                    fontFamily: 'Manrope',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromRGBO(
+                                        87, 51, 83, 1), 
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 25),
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Center(
+                                    child: Padding(
+                                      padding: EdgeInsets.zero,
+                                      child: TextButton(
+                                        onPressed: () {
+                                          // TODO: Implement forgot password functionality
                                         },
-                                      ),
-                                    TextFormField(
-                                      decoration: const InputDecoration(
-                                          labelText: 'Email Address',
-                                          labelStyle: TextStyle(
-                                              fontFamily: 'JosefinSans',
-                                              color: Color.fromRGBO(
-                                                  87, 51, 83, 1))),
-                                      keyboardType: TextInputType.emailAddress,
-                                      autocorrect: false,
-                                      textCapitalization:
-                                          TextCapitalization.none,
-                                      validator: (value) {
-                                        if (value == null ||
-                                            value.trim().isEmpty ||
-                                            !value.contains('@')) {
-                                          return 'Please enter a valid email address.';
-                                        }
-                                        return null;
-                                      },
-                                      onSaved: (value) {
-                                        _enteredEmail = value!;
-                                      },
-                                    ),
-                                    if (!_isLogin)
-                                      TextFormField(
-                                          decoration: const InputDecoration(
-                                              labelText: 'Username',
-                                              labelStyle: TextStyle(
-                                                  fontFamily: 'JosefinSans',
-                                                  color: Color.fromRGBO(
-                                                      87, 51, 83, 1))),
-                                          enableSuggestions: false,
-                                          validator: (value) {
-                                            if (value == null ||
-                                                value.trim().isEmpty ||
-                                                value.trim().length < 4) {
-                                              return 'Username must be at least 4 characters long.';
-                                            }
-                                            return null;
-                                          },
-                                          onSaved: (value) {
-                                            _enteredUsername = value!;
-                                          }),
-                                    TextFormField(
-                                      decoration: const InputDecoration(
-                                          labelText: 'Password',
-                                          labelStyle: TextStyle(
-                                              fontFamily: 'JosefinSans',
-                                              color: Color.fromRGBO(
-                                                  87, 51, 83, 1))),
-                                      obscureText: true,
-                                      validator: (value) {
-                                        if (value == null ||
-                                            value.trim().isEmpty ||
-                                            value.trim().length < 6) {
-                                          return 'Password must be at least 6 characters long.';
-                                        }
-                                        return null;
-                                      },
-                                      onSaved: (value) {
-                                        _enteredPassword = value!;
-                                      },
-                                    ),
-                                    const SizedBox(
-                                      height: 12,
-                                    ),
-                                    if (_isAuthenticating)
-                                      const CircularProgressIndicator(),
-                                    if (!_isAuthenticating)
-                                      ElevatedButton(
-                                          onPressed: _submit,
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor:
-                                                const Color.fromRGBO(
-                                                    253, 167, 88, 1),
+                                        style: ButtonStyle(
+                                          padding: MaterialStateProperty.all(
+                                              EdgeInsets.zero),
+                                          tapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          minimumSize:
+                                              MaterialStateProperty.all(
+                                                  Size.zero),
+                                        ),
+                                        child: const Text(
+                                          'Forgot Password?',
+                                          style: TextStyle(
+                                            fontFamily: 'Manrope',
+                                            fontWeight: FontWeight.bold,
+                                            color:
+                                                Color.fromRGBO(87, 51, 83, 1),
+                                            decoration:
+                                                TextDecoration.underline,
                                           ),
-                                          child: Text(
-                                            _isLogin ? 'Login' : 'Signup',
-                                            style: const TextStyle(
-                                                fontFamily: 'JosefinSans',
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color.fromRGBO(
-                                                    87, 51, 83, 1)),
-                                          )),
-                                    const SizedBox(
-                                      height: 12,
+                                        ),
+                                      ),
                                     ),
-                                    if (!_isAuthenticating)
-                                      TextButton(
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.zero,
+                                    child: Center(
+                                      child: TextButton(
                                         onPressed: () {
                                           setState(() {
                                             _isLogin = !_isLogin;
                                           });
                                         },
-                                        child: Text(
-                                          _isLogin
-                                              ? 'Create an account'
-                                              : 'I already have an account',
-                                          style: const TextStyle(
-                                              fontFamily: 'JosefinSans',
-                                              fontWeight: FontWeight.bold,
-                                              color: Color.fromRGBO(
-                                                  87, 51, 83, 1)),
+                                        style: ButtonStyle(
+                                          padding: MaterialStateProperty.all(
+                                              EdgeInsets.zero),
+                                          tapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          minimumSize:
+                                              MaterialStateProperty.all(
+                                                  Size.zero),
+                                        ),
+                                        child: RichText(
+                                          text: TextSpan(
+                                            style: TextStyle(
+                                              fontFamily: 'Manrope',
+                                              color:
+                                                  Color.fromRGBO(87, 51, 83, 1),
+                                            ),
+                                            children: <TextSpan>[
+                                              TextSpan(
+                                                  text: _isLogin
+                                                      ? "Don't have an account? "
+                                                      : 'Already have an account? '),
+                                              TextSpan(
+                                                text: _isLogin
+                                                    ? 'Sign up'
+                                                    : 'Login',
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                  ]),
-                            ),
-                          ),
-                        ),
-                      )
-                    ]),
-              ),
-            ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          )
+                        ]),
+                      ),
+                    ),
+                  ),
+                ))
           ],
         ));
   }

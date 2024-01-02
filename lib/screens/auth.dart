@@ -95,7 +95,7 @@ class _AuthScreenState extends State<AuthScreen> {
               alignment: Alignment.topCenter,
             )),
             Align(
-              alignment: Alignment(0, -0.07),
+              alignment: const Alignment(0, -0.07),
               child: SingleChildScrollView(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -118,7 +118,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 22.0),
                         child: ElevatedButton.icon(
                           icon: Padding(
-                            padding: EdgeInsets.only(top: 5.0),
+                            padding: const EdgeInsets.only(top: 5.0),
                             child: Image.asset(
                               'assets/images/google-icon.png',
                               height: 35.0,
@@ -157,8 +157,8 @@ class _AuthScreenState extends State<AuthScreen> {
                 bottom: 0,
                 height: MediaQuery.of(context).size.height * 0.40,
                 child: Card(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  shape: RoundedRectangleBorder(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15.0),
                       topRight: Radius.circular(15.0),
@@ -189,7 +189,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                   fontWeight: FontWeight.w400, fontSize: 15.5),
                             ),
                           ),
-                          Divider(
+                          const Divider(
                             color: Colors
                                 .grey,
                             thickness: 0,
@@ -233,7 +233,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                 ),
                               ),
                             ),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Color(0xFFFDA758),
                               decoration:
                                   TextDecoration.none,
@@ -273,14 +273,14 @@ class _AuthScreenState extends State<AuthScreen> {
                                   _enteredUsername = value!;
                                 }),
                           Padding(
-                            padding: EdgeInsets.only(top: 8.0),
+                            padding: const EdgeInsets.only(top: 8.0),
                             child: TextFormField(
                               decoration: InputDecoration(
                                 labelText: 'Password',
                                 labelStyle: const TextStyle(
                                   color: Color.fromRGBO(90, 86, 90, 1),
                                 ),
-                                prefixIcon: IconTheme(
+                                prefixIcon: const IconTheme(
                                   data: IconThemeData(
                                     size: 17.0,
                                     color: Color.fromRGBO(90, 86, 90, 1),
@@ -291,19 +291,19 @@ class _AuthScreenState extends State<AuthScreen> {
                                   ),
                                 ),
                                 filled: true,
-                                fillColor: Color(0xFFFFF3E9),
+                                fillColor: const Color(0xFFFFF3E9),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Colors.transparent, width: 0),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Colors.transparent, width: 0),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                               ),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Color(0xFFFDA758),
                                 decoration: TextDecoration.none,
                               ),
@@ -334,19 +334,19 @@ class _AuthScreenState extends State<AuthScreen> {
                                 onPressed: _submit,
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor:
-                                      Color.fromRGBO(253, 167, 88, 1),
+                                      const Color.fromRGBO(253, 167, 88, 1),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(
                                         9.0),
                                   ),
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       vertical: 16.0,
                                       horizontal:
                                           32.0), 
-                                  minimumSize: Size(double.infinity,
+                                  minimumSize: const Size(double.infinity,
                                       50), 
                                 ),
-                                child: Text(
+                                child: const Text(
                                   'Login',
                                   style: TextStyle(
                                     fontFamily: 'Manrope',
@@ -357,13 +357,13 @@ class _AuthScreenState extends State<AuthScreen> {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 25),
+                              const SizedBox(height: 25),
                               Column(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Center(
-                                    child: Padding(
+                                  Center( 
+                                    child: _isLogin ? Padding(
                                       padding: EdgeInsets.zero,
                                       child: TextButton(
                                         onPressed: () {
@@ -390,7 +390,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                           ),
                                         ),
                                       ),
-                                    ),
+                                    ) : SizedBox.shrink(), // This will show nothing if _isLogin is false
                                   ),
                                   Padding(
                                     padding: EdgeInsets.zero,
@@ -412,7 +412,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                         ),
                                         child: RichText(
                                           text: TextSpan(
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontFamily: 'Manrope',
                                               color:
                                                   Color.fromRGBO(87, 51, 83, 1),
@@ -426,7 +426,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                                 text: _isLogin
                                                     ? 'Sign up'
                                                     : 'Login',
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),

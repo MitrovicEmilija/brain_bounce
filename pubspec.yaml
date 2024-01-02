@@ -41,6 +41,7 @@ dependencies:
   cloud_firestore: ^4.13.2
   image_picker: ^1.0.4
   http: ^1.1.0
+  dio: ^5.4.0
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +71,7 @@ flutter:
      - assets/images/background-new.png
      - assets/images/avatar.png
      - assets/images/google-icon.png
+     - assets/images/community-icon.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

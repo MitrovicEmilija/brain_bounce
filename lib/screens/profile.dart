@@ -1,3 +1,4 @@
+import 'package:brain_bounce/screens/communities.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,6 +13,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   String? username;
+  String? email;
   String? profileImageUrl;
 
   Future<DocumentSnapshot> getUserData() async {
@@ -26,67 +28,131 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(255, 243, 233, 1),
+      appBar: AppBar(
+        centerTitle: true,
         backgroundColor: const Color.fromRGBO(255, 243, 233, 1),
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: const Color.fromRGBO(255, 243, 233, 1),
-          iconTheme: const IconThemeData(
-            color: Color.fromRGBO(87, 51, 83, 1),
-            size: 30.0,
-          ),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.edit_outlined),
-              color: const Color.fromRGBO(87, 51, 83, 1),
-              onPressed: () {},
-            )
-          ],
-          title: const Text(
-            'Profile',
-            style: TextStyle(
-                fontFamily: 'JosefinSans',
-                fontWeight: FontWeight.bold,
-                fontSize: 22,
-                color: Color.fromRGBO(87, 51, 83, 1)),
-          ),
+        iconTheme: const IconThemeData(
+          color: Color.fromRGBO(87, 51, 83, 1),
+          size: 30.0,
         ),
-        body: FutureBuilder<DocumentSnapshot>(
-          future: getUserData(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
-            } else if (snapshot.hasError) {
-              return Text('Something went wrong: ${snapshot.error}');
-            } else {
-              username = snapshot.data!['username'];
-              profileImageUrl = snapshot.data!['image_url'];
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.edit_outlined),
+            color: const Color.fromRGBO(87, 51, 83, 1),
+            onPressed: () {},
+          )
+        ],
+        title: const Text(
+          'Profile',
+          style: TextStyle(
+              fontFamily: 'JosefinSans',
+              fontWeight: FontWeight.bold,
+              fontSize: 22,
+              color: Color.fromRGBO(87, 51, 83, 1)),
+        ),
+      ),
+      body: FutureBuilder<DocumentSnapshot>(
+        future: getUserData(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const CircularProgressIndicator();
+          } else if (snapshot.hasError) {
+            return Text('Something went wrong: ${snapshot.error}');
+          } else {
+            username = snapshot.data!['username'];
+            email = snapshot.data!['email'];
+            profileImageUrl = snapshot.data!['image_url'];
 
-              return Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      CircleAvatar(
-                        radius: 50,
-                        backgroundImage: NetworkImage(profileImageUrl!),
-                        backgroundColor: Colors.transparent,
+            return Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundImage: NetworkImage(profileImageUrl!),
+                              backgroundColor: Colors.transparent,
+                            ),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Username: $username',
+                                  style: const TextStyle(
+                                      fontFamily: 'JosefinSans',
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: Color.fromRGBO(87, 51, 83, 1)),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Text(
+                                  'Email: $email',
+                                  style: const TextStyle(
+                                      fontFamily: 'JosefinSans',
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 15,
+                                      color: Color.fromRGBO(87, 51, 83, 1)),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                      const SizedBox(
-                        width: 20,
+                    ),
+                    const SizedBox(height: 20),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const Communities()));
+                      },
+                      child: const SizedBox(
+                        height: 60,
+                        width: double.infinity,
+                        child: Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(15.0),
+                            child: Row(
+                              children: [
+                                Image(
+                                  image: AssetImage(
+                                    'assets/images/community-icon.png',
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Available communities',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: 'JosefinSans',
+                                      fontWeight: FontWeight.w500,
+                                      color: Color.fromRGBO(87, 51, 83, 1),
+                                      fontSize: 16),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
-                      Text(
-                        username!,
-                        style: const TextStyle(
-                            fontFamily: 'JosefinSans',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: Color.fromRGBO(87, 51, 83, 1)),
-                      ),
-                    ]),
-              );
-            }
-          },
-        ));
+                    )
+                  ]),
+            );
+          }
+        },
+      ),
+    );
   }
 }

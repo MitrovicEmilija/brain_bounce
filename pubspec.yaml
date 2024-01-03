@@ -72,6 +72,8 @@ flutter:
      - assets/images/avatar.png
      - assets/images/google-icon.png
      - assets/images/community-icon.png
+     - assets/images/home-icon.png
+     - assets/images/settings-icon.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

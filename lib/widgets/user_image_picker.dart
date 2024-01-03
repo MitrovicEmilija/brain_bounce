@@ -49,7 +49,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
         label: const Text(
           'Add Image',
           style: TextStyle(
-            fontFamily: 'JosefinSans',
+            fontFamily: 'Manrope',
             fontWeight: FontWeight.bold,
             color: Color.fromRGBO(87, 51, 83, 1),
           ),

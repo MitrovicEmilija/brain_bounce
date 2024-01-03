@@ -130,6 +130,7 @@ class _AuthScreenState extends State<AuthScreen> {
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w600,
+                                  fontFamily: 'Manrope',
                                   color: Color.fromRGBO(87, 51, 83, 1)),
                               child: Text('Continue with Google'),
                             ),
@@ -188,7 +189,7 @@ class _AuthScreenState extends State<AuthScreen> {
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 15.5,
-                                  fontFamily: 'JosefinSans'),
+                                  fontFamily: 'Manrope'),
                             ),
                           ),
                           const Divider(
@@ -201,7 +202,7 @@ class _AuthScreenState extends State<AuthScreen> {
                               labelText: 'Email',
                               labelStyle: TextStyle(
                                   color: Color.fromRGBO(87, 51, 83, 1),
-                                  fontFamily: 'JosefinSans'),
+                                  fontFamily: 'Manrope'),
                               prefixIcon: IconTheme(
                                 data: IconThemeData(
                                   size: 17.0, // Smaller icon size
@@ -238,7 +239,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             style: const TextStyle(
                                 color: Color(0xFFFDA758),
                                 decoration: TextDecoration.none,
-                                fontFamily: 'JosefinSans'),
+                                fontFamily: 'Manrope'),
                             keyboardType: TextInputType.emailAddress,
                             autocorrect: false,
                             textCapitalization: TextCapitalization.none,
@@ -262,7 +263,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                 decoration: const InputDecoration(
                                   labelText: 'Username',
                                   labelStyle: TextStyle(
-                                      fontFamily: 'JosefinSans',
+                                      fontFamily: 'Manrope',
                                       color: Color.fromRGBO(87, 51, 83, 1)),
                                   prefixIcon: IconTheme(
                                     data: IconThemeData(
@@ -316,7 +317,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                 labelText: 'Password',
                                 labelStyle: const TextStyle(
                                     color: Color.fromRGBO(87, 51, 83, 1),
-                                    fontFamily: 'JosefinSans'),
+                                    fontFamily: 'Manrope'),
                                 prefixIcon: const IconTheme(
                                   data: IconThemeData(
                                     size: 17.0,
@@ -381,7 +382,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                 child: Text(
                                   _isLogin ? 'Login' : 'Signup',
                                   style: const TextStyle(
-                                    fontFamily: 'JosefinSans',
+                                    fontFamily: 'Manrope',
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                     color: Color.fromRGBO(87, 51, 83, 1),
@@ -415,7 +416,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                               child: const Text(
                                                 'Forgot Password?',
                                                 style: TextStyle(
-                                                  fontFamily: 'JosefinSans',
+                                                  fontFamily: 'Manrope',
                                                   fontWeight: FontWeight.bold,
                                                   color: Color.fromRGBO(
                                                       87, 51, 83, 1),
@@ -459,15 +460,14 @@ class _AuthScreenState extends State<AuthScreen> {
                                                       ? "Don't have an account? "
                                                       : 'Already have an account? ',
                                                   style: const TextStyle(
-                                                      fontFamily:
-                                                          'JosefinSans')),
+                                                      fontFamily: 'Manrope')),
                                               TextSpan(
                                                 text: _isLogin
                                                     ? 'Sign up'
                                                     : 'Login',
                                                 style: const TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    fontFamily: 'JosefinSans'),
+                                                    fontFamily: 'Manrope'),
                                               ),
                                             ],
                                           ),

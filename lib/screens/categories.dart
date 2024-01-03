@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:brain_bounce/screens/profile.dart';
+import 'package:brain_bounce/models/category.dart';
 
 class Categories extends StatefulWidget {
   const Categories({super.key});
@@ -11,9 +12,15 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  List<String> quotes = [];
-  List<String> jokes = [];
-  List<String> facts = [];
+  late List<Category> categories = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchCategories();
+  }
+
+  Future<void> fetchCategories() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +57,7 @@ class _CategoriesState extends State<Categories> {
                 return Card(
                   child: Center(
                     child: Text(
-                      'Item $index',
+                      'Category $index',
                       style: const TextStyle(
                         fontFamily: 'JosefinSans',
                         fontWeight: FontWeight.bold,

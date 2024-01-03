@@ -1,4 +1,5 @@
 import 'package:brain_bounce/screens/communities.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -114,8 +115,7 @@ class _ProfileState extends State<Profile> {
                     const SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const Communities()));
+                        //
                       },
                       child: const SizedBox(
                         height: 60,
@@ -134,7 +134,7 @@ class _ProfileState extends State<Profile> {
                                   width: 10,
                                 ),
                                 Text(
-                                  'Available communities',
+                                  'My community',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: 'JosefinSans',
@@ -147,11 +147,159 @@ class _ProfileState extends State<Profile> {
                           ),
                         ),
                       ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        //
+                      },
+                      child: const SizedBox(
+                        height: 80,
+                        width: double.infinity,
+                        child: Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(15.0),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.notifications,
+                                  size: 30,
+                                  color: Color.fromRGBO(252, 157, 69, 1),
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Notifications',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                          fontFamily: 'JosefinSans',
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromRGBO(87, 51, 83, 1),
+                                          fontSize: 16),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      'Customize notifications',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                          fontFamily: 'JosefinSans',
+                                          fontWeight: FontWeight.normal,
+                                          color:
+                                              Color.fromRGBO(121, 118, 120, 1),
+                                          fontSize: 14),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        //
+                      },
+                      child: const SizedBox(
+                        height: 80,
+                        width: double.infinity,
+                        child: Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(15.0),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.more_horiz_outlined,
+                                  size: 30,
+                                  color: Color.fromRGBO(252, 157, 69, 1),
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'More customization',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                          fontFamily: 'JosefinSans',
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromRGBO(87, 51, 83, 1),
+                                          fontSize: 16),
+                                    ),
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      'Customize it more to fit your usage',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                          fontFamily: 'JosefinSans',
+                                          fontWeight: FontWeight.normal,
+                                          color:
+                                              Color.fromRGBO(121, 118, 120, 1),
+                                          fontSize: 14),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                     )
                   ]),
             );
           }
         },
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: SizedBox(
+            height: 60,
+            child: Row(
+              children: [
+                const SizedBox(
+                  width: 60,
+                ),
+                IconButton(
+                    iconSize: 50,
+                    onPressed: () {
+                      //
+                    },
+                    icon: const Image(
+                        image: AssetImage('assets/images/home-icon.png'))),
+                const SizedBox(
+                  width: 40,
+                ),
+                IconButton(
+                    iconSize: 50,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const Communities()));
+                    },
+                    icon: const Image(
+                        image: AssetImage('assets/images/community-icon.png'))),
+                const SizedBox(
+                  width: 40,
+                ),
+                IconButton(
+                    iconSize: 50,
+                    onPressed: () {
+                      //
+                    },
+                    icon: const Image(
+                        image: AssetImage('assets/images/settings-icon.png'))),
+              ],
+            )),
       ),
     );
   }

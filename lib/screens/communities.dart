@@ -49,6 +49,15 @@ class _CommunitiesState extends State<Communities> {
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(255, 243, 233, 1),
           iconTheme: const IconThemeData(color: Color.fromRGBO(87, 51, 83, 1)),
+          actions: [
+            IconButton(
+              onPressed: () {
+                //
+              },
+              icon: const Icon(Icons.add_circle),
+              iconSize: 35,
+            ),
+          ],
           title: const Text(
             'Communities',
             style: TextStyle(

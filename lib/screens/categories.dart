@@ -81,7 +81,7 @@ class _CategoriesState extends State<Categories> {
                   margin: const EdgeInsets.only(left: 20, right: 20),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => const Profile(),
                       ));
                     },

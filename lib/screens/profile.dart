@@ -1,4 +1,5 @@
 import 'package:brain_bounce/screens/communities.dart';
+import 'package:brain_bounce/screens/auth.dart';
 
 import 'package:flutter/material.dart';
 
@@ -42,6 +43,23 @@ class _ProfileState extends State<Profile> {
             icon: const Icon(Icons.edit_outlined),
             color: const Color.fromRGBO(87, 51, 83, 1),
             onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.exit_to_app),
+            color: const Color.fromRGBO(87, 51, 83, 1),
+            onPressed: () async {
+              try {
+                await FirebaseAuth.instance.signOut();
+                if (mounted) {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const AuthScreen()),
+                  );
+                }
+              } catch (e) {
+                // ignore: avoid_print
+                print('Sign-out error: $e');
+              }
+            },
           )
         ],
         title: const Text(

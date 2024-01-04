@@ -65,7 +65,7 @@ class _ProfileState extends State<Profile> {
         title: const Text(
           'Profile',
           style: TextStyle(
-              fontFamily: 'JosefinSans',
+              fontFamily: 'Manrope',
               fontWeight: FontWeight.bold,
               fontSize: 22,
               color: Color.fromRGBO(87, 51, 83, 1)),
@@ -108,7 +108,7 @@ class _ProfileState extends State<Profile> {
                                 Text(
                                   'Username: $username',
                                   style: const TextStyle(
-                                      fontFamily: 'JosefinSans',
+                                      fontFamily: 'Manrope',
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
                                       color: Color.fromRGBO(87, 51, 83, 1)),
@@ -155,7 +155,7 @@ class _ProfileState extends State<Profile> {
                                   'My community',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontFamily: 'JosefinSans',
+                                      fontFamily: 'Manrope',
                                       fontWeight: FontWeight.w500,
                                       color: Color.fromRGBO(87, 51, 83, 1),
                                       fontSize: 16),
@@ -196,7 +196,7 @@ class _ProfileState extends State<Profile> {
                                       'Notifications',
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
-                                          fontFamily: 'JosefinSans',
+                                          fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w500,
                                           color: Color.fromRGBO(87, 51, 83, 1),
                                           fontSize: 16),
@@ -249,7 +249,7 @@ class _ProfileState extends State<Profile> {
                                       'More customization',
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
-                                          fontFamily: 'JosefinSans',
+                                          fontFamily: 'Manrope',
                                           fontWeight: FontWeight.w500,
                                           color: Color.fromRGBO(87, 51, 83, 1),
                                           fontSize: 16),

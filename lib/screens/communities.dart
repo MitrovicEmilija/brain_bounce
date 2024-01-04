@@ -61,7 +61,7 @@ class _CommunitiesState extends State<Communities> {
           title: const Text(
             'Communities',
             style: TextStyle(
-                fontFamily: 'JosefinSans',
+                fontFamily: 'Manrope',
                 fontWeight: FontWeight.bold,
                 color: Color.fromRGBO(87, 51, 83, 1)),
           ),
@@ -74,14 +74,13 @@ class _CommunitiesState extends State<Communities> {
                   return ListTile(
                     title: Text(community.name,
                         style: const TextStyle(
-                            fontFamily: 'JosefinSans',
+                            fontFamily: 'Manrope',
                             fontWeight: FontWeight.bold,
                             color: Color.fromRGBO(87, 51, 83, 1))),
                     subtitle: Text(
                       community.description,
                       style: const TextStyle(
-                          fontFamily: 'JosefinSans',
-                          fontWeight: FontWeight.w500),
+                          fontFamily: 'Manrope', fontWeight: FontWeight.w500),
                     ),
                     trailing: ElevatedButton(
                       onPressed: () {

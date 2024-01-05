@@ -28,6 +28,7 @@ class _CommunitiesState extends State<Communities> {
 
     if (response.statusCode == 200) {
       final List<dynamic> communityData = json.decode(response.body);
+      // ignore: avoid_print
       print('Received data from the backend: $communityData');
 
       setState(() {
@@ -36,8 +37,10 @@ class _CommunitiesState extends State<Communities> {
               name: community['name'], description: community['description']);
         }).toList();
       });
+      // ignore: avoid_print
       print('Communities loaded successfully: $communities');
     } else {
+      // ignore: avoid_print
       print('Failed to load communities');
     }
   }

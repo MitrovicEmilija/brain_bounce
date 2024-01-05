@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:brain_bounce/screens/profile.dart';
 import 'package:brain_bounce/models/category.dart';
@@ -28,19 +27,10 @@ class _CategoriesState extends State<Categories> {
       backgroundColor: const Color.fromRGBO(255, 243, 233, 1),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(255, 243, 233, 1),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.exit_to_app),
-            color: const Color.fromRGBO(87, 51, 83, 1),
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
-            },
-          )
-        ],
         title: const Text(
           'Categories',
           style: TextStyle(
-              fontFamily: 'JosefinSans',
+              fontFamily: 'Manrope',
               fontWeight: FontWeight.bold,
               fontSize: 20,
               color: Color.fromRGBO(87, 51, 83, 1)),
@@ -59,7 +49,7 @@ class _CategoriesState extends State<Categories> {
                     child: Text(
                       'Category $index',
                       style: const TextStyle(
-                        fontFamily: 'JosefinSans',
+                        fontFamily: 'Manrope',
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Color.fromRGBO(87, 51, 83, 1),

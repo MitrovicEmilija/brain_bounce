@@ -4,6 +4,9 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:io';
 
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 import 'package:brain_bounce/widgets/user_image_picker.dart';
 import 'package:brain_bounce/screens/profile.dart';
 import 'package:brain_bounce/screens/categories.dart';
@@ -28,6 +31,36 @@ class _AuthScreenState extends State<AuthScreen> {
   File? _selectedImage;
   var _isAuthenticating = false;
   var _enteredUsername = '';
+
+  Future<void> _addToMySql(
+      String name, String username, String dateOfBirth, String email) async {
+    const apiUrl = 'http://192.168.1.14:9090/api/users';
+
+    try {
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          "name": name,
+          "username": username,
+          "dateOfBirth": dateOfBirth,
+          "email": email
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        // ignore: avoid_print
+        print('User added to MySQL database');
+      } else {
+        // ignore: avoid_print
+        print(
+            'Error adding user to MySQL database. Status code: ${response.statusCode}, Body: ${response.body}');
+      }
+    } catch (error) {
+      // ignore: avoid_print
+      print('Error: $error');
+    }
+  }
 
   void _submit() async {
     final isValid = _formKey.currentState!.validate();
@@ -57,6 +90,9 @@ class _AuthScreenState extends State<AuthScreen> {
       } else {
         final userCredentials = await _firebase.createUserWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
+
+        await _addToMySql(
+            'Name', _enteredUsername, '1990-01-01', _enteredEmail);
 
         final storageRef = FirebaseStorage.instance
             .ref()
